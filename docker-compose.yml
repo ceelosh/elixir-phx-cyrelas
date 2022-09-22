@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: sh -c 'mix do ecto.create, ecto.migrate, phx.server'
+    volumes:
+      - .:/app
+    ports:
+      - "4000:4000"
+    environment:
+      DATABASE_HOST: db
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306:33060"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD: ''
+
+networks:
+  default:
+    name: board
