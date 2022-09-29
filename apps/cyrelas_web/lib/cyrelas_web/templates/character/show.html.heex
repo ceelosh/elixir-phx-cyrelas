@@ -1,0 +1,38 @@
+<h1>Show Character</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @character.name %>
+  </li>
+
+  <li>
+    <strong>Archetype:</strong>
+    <%= @character.archetype %>
+  </li>
+
+  <li>
+    <strong>Life points:</strong>
+    <%= @character.life_points %>
+  </li>
+
+  <li>
+    <strong>Energy points:</strong>
+    <%= @character.energy_points %>
+  </li>
+
+  <li>
+    <strong>Attack points:</strong>
+    <%= @character.attack_points %>
+  </li>
+
+  <li>
+    <strong>Defense points:</strong>
+    <%= @character.defense_points %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.character_path(@conn, :edit, @character) %></span> |
+<span><%= link "Back", to: Routes.character_path(@conn, :index) %></span>
