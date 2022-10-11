@@ -18,6 +18,9 @@ defmodule CyrelasWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/characters", CharacterController, except: [:new, :edit]
+    resources "/classes", ClassController, except: [:new, :edit]
+    resources "/races", RaceController, except: [:new, :edit]
   end
 
   # Other scopes may use custom stacks.
