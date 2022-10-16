@@ -4,7 +4,7 @@ import Config
 config :cyrelas, Cyrelas.Repo,
   username: "root",
   password: "",
-  hostname: System.get_env("DATABASE_HOST", "localhost"),
+  hostname: "localhost",
   database: "cyrelas_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
